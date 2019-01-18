@@ -7,32 +7,58 @@
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
     ios:Page.UseSafeArea="true">
     
-    <ListView
-        x:Name="scheduleList"
-        HasUnevenRows="true"
-        Margin="16"> 
-        
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <StackLayout
-                        HorizontalOptions="FillAndExpand"
-                        Orientation="Horizontal">
+    <StackLayout
+        Orientation="Vertical"
+        Margin="16"
+        Spacing="16">
+
+        <StackLayout
+            Orientation="Horizontal"
+            Spacing="16">
+
+            <Button
+                HorizontalOptions="FillAndExpand"
+                HeightRequest="60"
+                BackgroundColor="Navy"
+                TextColor="White"
+                Text="Change Title"
+                Clicked="ChangeFirstTitle"/>
+
+            <Button
+                HorizontalOptions="FillAndExpand"
+                HeightRequest="60"
+                BackgroundColor="Teal"
+                TextColor="White"
+                Text="Append Data"
+                Clicked="AppendNewData"/>
+
+        </StackLayout>
+        <ListView
+            x:Name="scheduleList"
+            HasUnevenRows="true"> 
+            
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
                         <StackLayout
-                            Orientation="Vertical">
-                            <Label Text="{Binding Datestr}"/>
-                            <Label Text="{Binding Title}"/>
-                            <Label Text="{Binding Place}"/>
+                            HorizontalOptions="FillAndExpand"
+                            Orientation="Horizontal">
+                            <StackLayout
+                                Orientation="Vertical">
+                                <Label Text="{Binding Datestr}"/>
+                                <Label Text="{Binding Title}"/>
+                                <Label Text="{Binding Place}"/>
+                            </StackLayout>
+                            <Image
+                                WidthRequest="40"
+                                HeightRequest="40"
+                                BackgroundColor="Olive" 
+                                VerticalOptions="Center"
+                                HorizontalOptions="EndAndExpand"/>
                         </StackLayout>
-                        <Image
-                            WidthRequest="40"
-                            HeightRequest="40"
-                            BackgroundColor="Olive" 
-                            VerticalOptions="Center"
-                            HorizontalOptions="EndAndExpand"/>
-                    </StackLayout>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>
