@@ -20,6 +20,11 @@ namespace XamarinPractice
 
             // ListViewにデータソースをセット
             scheduleList.ItemsSource = ScheduleListData;
+
+            scheduleList.ItemSelected += (sender, e) =>
+            {
+                Application.Current.MainPage = new DetailPage((Schedule) e.SelectedItem);
+            };
         }
 
         public void ChangeFirstTitle(object sender, EventArgs e)
