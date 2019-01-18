@@ -23,7 +23,7 @@ namespace XamarinPractice
 
             scheduleList.ItemSelected += (sender, e) =>
             {
-                Application.Current.MainPage = new DetailPage((Schedule) e.SelectedItem);
+                Navigation.PushAsync(new DetailPage((Schedule) e.SelectedItem));
             };
         }
 
